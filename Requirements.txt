@@ -20,3 +20,12 @@ User Interface: (Grid Based)
 	Adjust Size of Screen based on Settings
 	Dynamic Camera*
 	Asset Selection Screen
+	
+Sprint 1:
+Get Working Code started (Everyone)
+Loading Graphics (Ronald)
+Loading Sounds (Nathan)
+Formatting GUI (Colin & Matt)
+Basic Asset Creation (David)
+
+Sprint 2:
