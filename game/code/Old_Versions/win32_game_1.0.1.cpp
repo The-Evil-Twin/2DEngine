@@ -179,7 +179,7 @@ bool AnotherInstance()
 {
     HANDLE ourMutex;
     // Attempt to create a mutex using out unique string
-    ourMutex = CreateMutex(NULL. true, "BLDEW0RKZ");
+    ourMutex = CreateMutex(NULL, true, "BLDEW0RKZ");
 
     if (GetLastError() == ERROR_ALREADY_EXISTS)
         return true;
