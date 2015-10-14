@@ -39,7 +39,7 @@ WinMain(HINSTANCE Instance,
         return false;
 
     // Loops until done
-    int done = 0;
+    int done = 1;
     MSG msg;
     while (!done)
     {
