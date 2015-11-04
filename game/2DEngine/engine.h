@@ -13,10 +13,10 @@ class Engine : public Game
 {
 private:
     // game items
-    TextureManager backgroundTexture;   // nebula texture
-    TextureManager characterTexture;     // ship texture
-    Image   background;             // Background image
-    Image   character;              // ship image
+    TextureManager backgroundTexture;   // Background Texture
+    TextureManager characterTexture;    // Character Texture       
+    // Image   background;              // Background image
+    Image   character;                  // image
 
 
 public:

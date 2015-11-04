@@ -17,6 +17,7 @@ Engine::~Engine()
 //=============================================================================
 // Initializes the game
 // Throws GameError on error
+// Where we load all of our textures
 //=============================================================================
 void Engine::initialize(HWND hwnd)
 {
@@ -25,7 +26,6 @@ void Engine::initialize(HWND hwnd)
     // background texture
     //if (!backgroundTexture.initialize(graphics,BACKGROUND_IMAGE))
     //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
-    // spacecharacter texture
     if (!characterTexture.initialize(graphics,CHARACTER_IMAGE))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character texture"));
 
@@ -97,8 +97,7 @@ void Engine::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 
-    background.draw();                          // add the orion nebula to the scene
-    character.draw();                            // add the spacecharacter to the scene
+    character.draw();                       // add the character to the scene
 
     graphics->spriteEnd();                  // end drawing sprites
 }
@@ -110,7 +109,7 @@ void Engine::render()
 void Engine::releaseAll()
 {
     characterTexture.onLostDevice();
-    backgroundTexture.onLostDevice();
+    // backgroundTexture.onLostDevice();
 
     Game::releaseAll();
     return;
@@ -122,7 +121,7 @@ void Engine::releaseAll()
 //=============================================================================
 void Engine::resetAll()
 {
-    backgroundTexture.onResetDevice();
+    // backgroundTexture.onResetDevice();
     characterTexture.onResetDevice();
 
     Game::resetAll();
