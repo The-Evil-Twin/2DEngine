@@ -98,12 +98,8 @@ void Engine::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 
-<<<<<<< HEAD
     // background.draw();                      
     character.draw();
-=======
-    character.draw();                       // add the character to the scene
->>>>>>> 7a60a1488e70293b65b0d7ff9bb1e6bd470176fa
 
     graphics->spriteEnd();                  // end drawing sprites
 }

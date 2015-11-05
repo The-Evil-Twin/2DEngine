@@ -6,6 +6,7 @@
 #include "textureManager.h"
 #include "image.h"
 #include "player.h"
+#include "terrain.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -14,16 +15,12 @@ class Engine : public Game
 {
 private:
     // game items
-    TextureManager backgroundTexture;   // nebula texture
-    TextureManager characterTexture;     // ship texture
-    Image   background;             // Background image
-    Player character;              // ship image
-	// Terrain ground;
-    TextureManager backgroundTexture;   // Background Texture
-    TextureManager characterTexture;    // Character Texture       
-    // Image   background;              // Background image
-    Image   character;                  // image
-
+    TextureManager backgroundTexture;		// background texture
+    TextureManager characterTexture;		// character texture
+	// TextureManager groundTexture;			// ground texture
+    Image   background;						// Background image
+    Player character;						// character image     
+	// Terrain ground;							// ground image
 
 public:
     // Constructor
