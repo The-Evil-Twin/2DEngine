@@ -17,6 +17,7 @@ Engine::~Engine()
 //=============================================================================
 // Initializes the game
 // Throws GameError on error
+// Where we load all of our textures
 //=============================================================================
 void Engine::initialize(HWND hwnd)
 {
@@ -97,8 +98,12 @@ void Engine::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 
+<<<<<<< HEAD
     // background.draw();                      
     character.draw();
+=======
+    character.draw();                       // add the character to the scene
+>>>>>>> 7a60a1488e70293b65b0d7ff9bb1e6bd470176fa
 
     graphics->spriteEnd();                  // end drawing sprites
 }
@@ -110,7 +115,7 @@ void Engine::render()
 void Engine::releaseAll()
 {
     characterTexture.onLostDevice();
-    backgroundTexture.onLostDevice();
+    // backgroundTexture.onLostDevice();
 
     Game::releaseAll();
     return;
@@ -122,7 +127,7 @@ void Engine::releaseAll()
 //=============================================================================
 void Engine::resetAll()
 {
-    backgroundTexture.onResetDevice();
+    // backgroundTexture.onResetDevice();
     characterTexture.onResetDevice();
 
     Game::resetAll();

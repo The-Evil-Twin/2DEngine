@@ -19,6 +19,10 @@ private:
     Image   background;             // Background image
     Player character;              // ship image
 	// Terrain ground;
+    TextureManager backgroundTexture;   // Background Texture
+    TextureManager characterTexture;    // Character Texture       
+    // Image   background;              // Background image
+    Image   character;                  // image
 
 
 public:
