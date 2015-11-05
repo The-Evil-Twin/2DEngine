@@ -30,6 +30,9 @@ bool Entity::initialize(Game *gamePtr, int width, int height, int cols, TextureM
 	return(Image::initialize(gamePtr->getGraphics(), width, height, cols, texture)); 
 }
 
+//==========================================================
+// Activates the Entity
+//==========================================================
 void Entity::activate()
 {
 	active = true;

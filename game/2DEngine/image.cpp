@@ -5,18 +5,18 @@
 //=============================================================================
 Image::Image()
 {
-    initialized = false;            // set true when successfully initialized
+    initialized = false;                // set true when successfully initialized
     spriteData.width = 2;
     spriteData.height = 2;
     spriteData.x = 0.0;
     spriteData.y = 0.0;
     spriteData.scale = 1.0;
     spriteData.angle = 0.0;
-    spriteData.rect.left = 0;       // used to select one frame from multi-frame image
+    spriteData.rect.left = 0;           // used to select one frame from multi-frame image
     spriteData.rect.top = 0;
     spriteData.rect.right = spriteData.width;
     spriteData.rect.bottom = spriteData.height;
-    spriteData.texture = NULL;      // the sprite texture (picture)
+    spriteData.texture = NULL;          // the sprite texture (picture)
     spriteData.flipHorizontal = false;
     spriteData.flipVertical = false;
     cols = 1;
@@ -24,13 +24,13 @@ Image::Image()
     startFrame = 0;
     endFrame = 0;
     currentFrame = 0;
-    frameDelay = 1.0;               // default to 1 second per frame of animation
+    frameDelay = 1.0;                   // default to 1 second per frame of animation
     animTimer = 0.0;
-    visible = true;                 // the image is visible
-    loop = true;                    // loop frames
+    visible = true;                     // the image is visible
+    loop = true;                        // loop frames
     animComplete = false;
-    graphics = NULL;                // link to graphics system
-    colorFilter = graphicsNS::WHITE; // WHITE for no change
+    graphics = NULL;                    // link to graphics system
+    colorFilter = graphicsNS::WHITE;    // WHITE for no change
 }
 
 //=============================================================================
@@ -41,12 +41,13 @@ Image::~Image()
 
 //=============================================================================
 // Initialize the Image.
-// Post: returns true if successful, false if failed
+// @param
 // pointer to Graphics
 // width of Image in pixels  (0 = use full texture width)
 // height of Image in pixels (0 = use full texture height)
 // number of columns in texture (1 to n) (0 same as 1)
 // pointer to TextureManager
+// Returns: true if successful, false if failed
 //=============================================================================
 bool Image::initialize(Graphics *g, int width, int height, int ncols,
                        TextureManager *textureM)
@@ -83,8 +84,6 @@ bool Image::initialize(Graphics *g, int width, int height, int ncols,
 //=============================================================================
 // Draw the image using color as filter
 // The color parameter is optional, WHITE is assigned as default in image.h
-// Pre : spriteBegin() is called
-// Post: spriteEnd() is called
 //=============================================================================
 void Image::draw(COLOR_ARGB color)
 {
@@ -101,8 +100,6 @@ void Image::draw(COLOR_ARGB color)
 //=============================================================================
 // Draw this image using the specified SpriteData.
 //   The current SpriteData.rect is used to select the texture.
-// Pre : spriteBegin() is called
-// Post: spriteEnd() is called
 //=============================================================================
 void Image::draw(SpriteData sd, COLOR_ARGB color)
 {
@@ -160,7 +157,7 @@ void Image::setCurrentFrame(int c)
 }
 
 //=============================================================================
-//  Set spriteData.rect to draw currentFrame
+// Sets spriteData.rect: used for selecting animation of current frame
 //=============================================================================
 inline void Image::setRect() 
 {
