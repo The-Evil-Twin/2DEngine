@@ -1,19 +1,25 @@
-﻿Build started 10/28/2015 12:10:13 AM.
-     1>Project "W:\game\code\test\2DEngine\2DEngine.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/5/2015 12:52:41 AM.
+     1>Project "D:\Git\2DEngine\game\2DEngine\2DEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt engine.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt engine.cpp terrain.cpp winmain.cpp
+         winmain.cpp
+         terrain.cpp
          engine.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"W:\game\code\test\2DEngine\Debug\2DEngine.exe" /INCREMENTAL /NOLOGO Winmm.lib d3d9.lib d3dx9.lib xinput.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"W:\game\code\test\2DEngine\Debug\2DEngine.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"W:\game\code\test\2DEngine\Debug\2DEngine.lib" /MACHINE:X86 Debug\engine.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Git\2DEngine\game\2DEngine\Debug\2DEngine.exe" /INCREMENTAL /NOLOGO Winmm.lib d3d9.lib d3dx9.lib xinput.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Git\2DEngine\game\2DEngine\Debug\2DEngine.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Git\2DEngine\game\2DEngine\Debug\2DEngine.lib" /MACHINE:X86 Debug\player.obj
+         Debug\engine.obj
          Debug\game.obj
          Debug\graphics.obj
          Debug\image.obj
          Debug\input.obj
+         Debug\entity.obj
+         Debug\terrain.obj
          Debug\textureManager.obj
          Debug\winmain.obj
-         2DEngine.vcxproj -> W:\game\code\test\2DEngine\Debug\2DEngine.exe
-     1>Done Building Project "W:\game\code\test\2DEngine\2DEngine.vcxproj" (Build target(s)).
+         2DEngine.vcxproj -> D:\Git\2DEngine\game\2DEngine\Debug\2DEngine.exe
+     1>Done Building Project "D:\Git\2DEngine\game\2DEngine\2DEngine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.82
+Time Elapsed 00:00:01.47

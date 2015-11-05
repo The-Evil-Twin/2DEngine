@@ -28,4 +28,6 @@
 *.app
 
 build
-2D_Engine
+
+*.sdf
+*.opensdf

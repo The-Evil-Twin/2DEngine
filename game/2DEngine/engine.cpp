@@ -25,7 +25,6 @@ void Engine::initialize(HWND hwnd)
     // background texture
     //if (!backgroundTexture.initialize(graphics,BACKGROUND_IMAGE))
     //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
-    // spacecharacter texture
     if (!characterTexture.initialize(graphics,CHARACTER_IMAGE))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character texture"));
 
@@ -34,13 +33,13 @@ void Engine::initialize(HWND hwnd)
     //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
 
     // character
-    if (!character.initialize(graphics,0,0,0,&characterTexture))
+    if (!character.initialize(this,playerNS::WIDTH,playerNS::HEIGHT,0,&characterTexture))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character"));
     character.setX(GAME_WIDTH/4);                           // Character Starting Position
     character.setY(GAME_HEIGHT/4);
+	character.setVelocity(VECTOR2(0, -playerNS::SPEED));
     //character.setFrames(CHARACTER_START_FRAME, CHARACTER_END_FRAME);   // animation frames
-    character.setCurrentFrame(CHARACTER_START_FRAME);     // starting frame
-    character.setFrameDelay(CHARACTER_ANIMATION_DELAY);
+	// character.setVelocity(VECTOR2());
 
 	return;
 }
@@ -52,25 +51,24 @@ void Engine::update()
 {
     if(input->isKeyDown(CHARACTER_RIGHT_KEY))            // if move right
     {
-        character.setX(character.getX() + frameTime * CHARACTER_SPEED);
+        character.setX(character.getX() + frameTime * playerNS::SPEED);
         if (character.getX() > GAME_WIDTH)               // if off screen right
             character.setX((float)-character.getWidth());     // position off screen left
     }
     if(input->isKeyDown(CHARACTER_LEFT_KEY))             // if move left
     {
-        character.setX(character.getX() - frameTime * CHARACTER_SPEED);
+		character.setX(character.getX() - frameTime * playerNS::SPEED);
         if (character.getX() < -character.getWidth())         // if off screen left
             character.setX((float)GAME_WIDTH);           // position off screen right
     }
-    if(input->isKeyDown(CHARACTER_UP_KEY))               // if move up
+	// If up key is pressed and the player is not at the bottom of the screen
+	if (input->isKeyDown(CHARACTER_UP_KEY) && character.getY() >= GAME_HEIGHT - playerNS::HEIGHT)
     {
-        character.setY(character.getY() - frameTime * CHARACTER_SPEED);
-        if (character.getY() < -character.getHeight())        // if off screen top
-            character.setY((float)GAME_HEIGHT);          // position off screen bottom
+		character.jump();
     }
     if(input->isKeyDown(CHARACTER_DOWN_KEY))             // if move down
     {
-        character.setY(character.getY() + frameTime * CHARACTER_SPEED);
+		character.setY(character.getY() + frameTime * playerNS::SPEED);
         if (character.getY() > GAME_HEIGHT)              // if off screen bottom
             character.setY((float)-character.getHeight());    // position off screen top
     }
@@ -88,7 +86,9 @@ void Engine::ai()
 // Handle collisions
 //=============================================================================
 void Engine::collisions()
-{}
+{
+
+}
 
 //=============================================================================
 // Render game items
@@ -97,8 +97,8 @@ void Engine::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 
-    background.draw();                          // add the orion nebula to the scene
-    character.draw();                            // add the spacecharacter to the scene
+    // background.draw();                      
+    character.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }

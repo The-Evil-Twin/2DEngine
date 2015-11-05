@@ -20,6 +20,7 @@
 #define LP_SPRITE   LPD3DXSPRITE
 #define LP_3DDEVICE LPDIRECT3DDEVICE9
 #define LP_3D       LPDIRECT3D9
+#define VECTOR2     D3DXVECTOR2
 
 // Color defines
 #define COLOR_ARGB DWORD
@@ -140,6 +141,15 @@ public:
     //      spriteData.rect.bottom must be bottom edge + 1
     void    drawSprite(const SpriteData &spriteData,           // sprite to draw
                        COLOR_ARGB color = graphicsNS::WHITE);      // default to white color filter (no change)
+
+	// Return length of vector v.
+	static float    Vector2Length(const VECTOR2 *v) { return D3DXVec2Length(v); }
+
+	// Return Dot product of vectors v1 and v2.
+	static float    Vector2Dot(const VECTOR2 *v1, const VECTOR2 *v2) { return D3DXVec2Dot(v1, v2); }
+
+	// Normalize vector v.
+	static void     Vector2Normalize(VECTOR2 *v) { D3DXVec2Normalize(v, v); }
 
     // Reset the graphics device.
     HRESULT reset();

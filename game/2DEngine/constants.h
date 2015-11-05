@@ -23,6 +23,7 @@
 //                  Constants
 //-----------------------------------------------
 // graphic images
+// const char BACKGROUND_IMAGE[]  = ""; 
 const char CHARACTER_IMAGE[]   = "pictures\\WallSocketLady.png";   // spaceCHARACTER
 
 // window
@@ -31,16 +32,7 @@ const char GAME_TITLE[] = "2DEngine";
 const bool FULLSCREEN = false;              // windowed or fullscreen
 const UINT GAME_WIDTH =  640;               // width of game in pixels
 const UINT GAME_HEIGHT = 480;               // height of game in pixels
-const int  CHARACTER_START_FRAME = 0;            // starting frame of CHARACTER animation
-const int  CHARACTER_END_FRAME = 3;              // last frame of CHARACTER animation
-const float CHARACTER_ANIMATION_DELAY = 0.2f;    // time between frames of CHARACTER animation
-const int  CHARACTER_COLS = 2;                   // CHARACTER texture has 2 columns
-const int  CHARACTER_WIDTH = 32;                 // width of CHARACTER image
-const int  CHARACTER_HEIGHT = 32;                // height of CHARACTER image
-const float ROTATION_RATE = 180.0f;         // degrees per second
-const float SCALE_RATE = 0.2f;              // % change per second
-const float CHARACTER_SPEED = 100.0f;            // pixels per second
-const float CHARACTER_SCALE = 1.5f;              // starting CHARACTER scale
+const float GRAVITY = 1000.0f;
 
 // game
 const double PI = 3.14159265;
@@ -50,6 +42,8 @@ const float MIN_FRAME_TIME = 1.0f/FRAME_RATE;   // minimum desired time for 1 fr
 const float MAX_FRAME_TIME = 1.0f/MIN_FRAME_RATE; // maximum time used in calculations
 
 // key mappings
+// In this game simple constants are used for key mappings. If variables were used
+// it would be possible to save and restore key mappings from a data file.
 const UCHAR ESC_KEY      = VK_ESCAPE;       // escape key
 const UCHAR ALT_KEY      = VK_MENU;         // Alt key
 const UCHAR ENTER_KEY    = VK_RETURN;       // Enter key

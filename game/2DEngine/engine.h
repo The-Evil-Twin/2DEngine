@@ -5,6 +5,7 @@
 #include "game.h"
 #include "textureManager.h"
 #include "image.h"
+#include "player.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -16,7 +17,8 @@ private:
     TextureManager backgroundTexture;   // nebula texture
     TextureManager characterTexture;     // ship texture
     Image   background;             // Background image
-    Image   character;              // ship image
+    Player character;              // ship image
+	// Terrain ground;
 
 
 public:
