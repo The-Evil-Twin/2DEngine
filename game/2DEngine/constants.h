@@ -24,7 +24,8 @@
 //-----------------------------------------------
 // graphic images
 // const char BACKGROUND_IMAGE[]  = ""; 
-const char CHARACTER_IMAGE[]   = "pictures\\WallSocketLady.png";   // spaceCHARACTER
+const char CHARACTER_IMAGE[]   = "pictures\\WallSocketLady.png";   // CHARACTER
+const char GROUND_IMAGE[] = "pictures\\Grass.png";   // GRASS GROUND
 
 // window
 const char CLASS_NAME[] = "2DEngine";

@@ -17,10 +17,10 @@ private:
     // game items
     TextureManager backgroundTexture;		// background texture
     TextureManager characterTexture;		// character texture
-	// TextureManager groundTexture;			// ground texture
+	TextureManager groundTexture;			// ground texture
     Image   background;						// Background image
     Player character;						// character image     
-	// Terrain ground;							// ground image
+	Terrain ground;							// ground image
 
 public:
     // Constructor

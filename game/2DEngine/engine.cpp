@@ -28,6 +28,8 @@ void Engine::initialize(HWND hwnd)
     //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
     if (!characterTexture.initialize(graphics,CHARACTER_IMAGE))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character texture"));
+	if (!groundTexture.initialize(graphics, GROUND_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ground texture"));
 
     // background
     //if (!background.initialize(graphics,0,0,0,&backgroundTexture))
@@ -36,8 +38,12 @@ void Engine::initialize(HWND hwnd)
     // character
     if (!character.initialize(this,playerNS::WIDTH,playerNS::HEIGHT,0,&characterTexture))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character"));
+	if (!ground.initialize(this, terrainNS::WIDTH, terrainNS::HEIGHT, 0, &groundTexture))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ground"));
     character.setX(GAME_WIDTH/4);                           // Character Starting Position
     character.setY(GAME_HEIGHT/4);
+	ground.setX(GAME_WIDTH / 2);                           // Ground Starting Position
+	ground.setY(GAME_HEIGHT - ground.getHeight());
 	character.setVelocity(VECTOR2(0, -playerNS::SPEED));
     //character.setFrames(CHARACTER_START_FRAME, CHARACTER_END_FRAME);   // animation frames
 	// character.setVelocity(VECTOR2());
@@ -88,7 +94,10 @@ void Engine::ai()
 //=============================================================================
 void Engine::collisions()
 {
-
+	VECTOR2 cv;
+	if (character.collides(ground, cv))
+		character.setX(10);
+		// character.setVelocity(VECTOR2(character.getVelocity().x, 0));
 }
 
 //=============================================================================
@@ -100,6 +109,7 @@ void Engine::render()
 
     // background.draw();                      
     character.draw();
+	ground.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }
@@ -111,6 +121,7 @@ void Engine::render()
 void Engine::releaseAll()
 {
     characterTexture.onLostDevice();
+	groundTexture.onLostDevice();
     // backgroundTexture.onLostDevice();
 
     Game::releaseAll();
@@ -125,6 +136,7 @@ void Engine::resetAll()
 {
     // backgroundTexture.onResetDevice();
     characterTexture.onResetDevice();
+	groundTexture.onResetDevice();
 
     Game::resetAll();
     return;
