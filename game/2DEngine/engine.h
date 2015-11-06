@@ -1,5 +1,5 @@
-#ifndef _2DENGINE_H             // Prevent multiple definitions if this 
-#define _2DENGINE_H             // file is included in more than one place
+#ifndef _2DENGINE_H             
+#define _2DENGINE_H             
 #define WIN32_LEAN_AND_MEAN
 
 #include "game.h"
@@ -31,10 +31,10 @@ public:
 
     // Initialize the game
     void initialize(HWND hwnd);
-    void update();      // must override pure virtual from Game
-    void ai();          // "
-    void collisions();  // "
-    void render();      // "
+    void update();      
+    void ai();          
+    void collisions();  
+    void render();      
     void releaseAll();
     void resetAll();
 };

@@ -43,8 +43,6 @@ void Engine::initialize(HWND hwnd)
     character.setX(GAME_WIDTH/4);                           // Character Starting Position
     character.setY(GAME_HEIGHT/4);
 	character.setVelocity(VECTOR2(0, -playerNS::SPEED));
-    //character.setFrames(CHARACTER_START_FRAME, CHARACTER_END_FRAME);   // animation frames
-	// character.setVelocity(VECTOR2());
 
 	return;
 }
@@ -80,9 +78,9 @@ void Engine::update()
 	}
     if(input->isKeyDown(CHARACTER_DOWN_KEY))             // if move down
     {
-		character.setY(character.getY() + frameTime * playerNS::SPEED);
-        if (character.getY() > GAME_HEIGHT)              // if off screen bottom
-            character.setY((float)-character.getHeight());    // position off screen top
+		character.setVelocity(VECTOR2(0, character.getVelocity().y));
+        //if (character.getY() > GAME_HEIGHT)              // if off screen bottom
+            //character.setY((float)-character.getHeight());    // position off screen top
     }
 
     character.update(frameTime);
@@ -135,7 +133,7 @@ void Engine::releaseAll()
 {
     characterTexture.onLostDevice();
 	groundTexture.onLostDevice();
-    // backgroundTexture.onLostDevice();
+    backgroundTexture.onLostDevice();
 
     Game::releaseAll();
     return;
@@ -147,7 +145,7 @@ void Engine::releaseAll()
 //=============================================================================
 void Engine::resetAll()
 {
-    // backgroundTexture.onResetDevice();
+    backgroundTexture.onResetDevice();
     characterTexture.onResetDevice();
 	groundTexture.onResetDevice();
 

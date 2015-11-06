@@ -1,5 +1,5 @@
-#ifndef _INPUT_H                // Prevent multiple definitions if this 
-#define _INPUT_H                // file is included in more than one place
+#ifndef _INPUT_H              
+#define _INPUT_H             
 #define WIN32_LEAN_AND_MEAN
 
 class Input;
@@ -119,7 +119,6 @@ public:
 
     // Clear specified input buffers where what is any combination of
     // KEYS_DOWN, KEYS_PRESSED, MOUSE, TEXT_IN or KEYS_MOUSE_TEXT.
-    // Use OR '|' operator to combine parmeters.
     void clear(UCHAR what);
 
     // Clears key, mouse and text input data
@@ -365,9 +364,6 @@ public:
     }
 
     // Vibrate controller n left motor.
-    // Left is low frequency vibration.
-    // speed 0=off, 65536=100 percent
-    // sec is time to vibrate in seconds
     void gamePadVibrateLeft(UINT n, WORD speed, float sec)
     {
         if(n > MAX_CONTROLLERS-1)
@@ -377,9 +373,6 @@ public:
     }
 
     // Vibrate controller n right motor.
-    // Right is high frequency vibration.
-    // speed 0=off, 65536=100 percent
-    // sec is time to vibrate in seconds
     void gamePadVibrateRight(UINT n, WORD speed, float sec)
     {
         if(n > MAX_CONTROLLERS-1)
