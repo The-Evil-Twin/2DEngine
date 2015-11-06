@@ -15,7 +15,8 @@ Entity::Entity() : Image()
 	deltaV.x = 0;
 	deltaV.y = 0;
 	active = true;
-	// TODO: Continue
+	collisionType = entityNS::ROTATED_BOX;
+	gravity = entityNS::GRAVITY;
 }
 
 void Entity::ai(float frameTime, Entity &ent)
@@ -75,7 +76,7 @@ bool Entity::collideBox(Entity &ent, VECTOR2 &collision)
 		(getCenterY() + edge.bottom*getScale() >= ent.getCenterY() + ent.getEdge().top*ent.getScale()) &&
 		(getCenterY() + edge.top*getScale() <= ent.getCenterY() + ent.getEdge().bottom*ent.getScale()))
 	{
-		collision = *ent.getCenter() - *getCenter();
+		// collision = *ent.getCenter() - *getCenter();
 		return true;
 	}
 	return false;

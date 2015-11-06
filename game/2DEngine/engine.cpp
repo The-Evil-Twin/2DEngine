@@ -42,8 +42,6 @@ void Engine::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ground"));
     character.setX(GAME_WIDTH/4);                           // Character Starting Position
     character.setY(GAME_HEIGHT/4);
-	ground.setX(GAME_WIDTH / 2);                           // Ground Starting Position
-	ground.setY(GAME_HEIGHT - ground.getHeight());
 	character.setVelocity(VECTOR2(0, -playerNS::SPEED));
     //character.setFrames(CHARACTER_START_FRAME, CHARACTER_END_FRAME);   // animation frames
 	// character.setVelocity(VECTOR2());
@@ -56,23 +54,30 @@ void Engine::initialize(HWND hwnd)
 //=============================================================================
 void Engine::update()
 {
-    if(input->isKeyDown(CHARACTER_RIGHT_KEY))            // if move right
+    VECTOR2 cv;
+	if(input->isKeyDown(CHARACTER_RIGHT_KEY))            // if move right
     {
-        character.setX(character.getX() + frameTime * playerNS::SPEED);
-        if (character.getX() > GAME_WIDTH)               // if off screen right
-            character.setX((float)-character.getWidth());     // position off screen left
+		character.setVelocity(VECTOR2(100, character.getVelocity().y));
     }
-    if(input->isKeyDown(CHARACTER_LEFT_KEY))             // if move left
+	if (input->isKeyDown(CHARACTER_LEFT_KEY))             // if move left
     {
-		character.setX(character.getX() - frameTime * playerNS::SPEED);
-        if (character.getX() < -character.getWidth())         // if off screen left
-            character.setX((float)GAME_WIDTH);           // position off screen right
-    }
+		character.setVelocity(VECTOR2(-100, character.getVelocity().y));
+	}
+
+	if (character.getX() > GAME_WIDTH)               // if off screen right
+		character.setX((float)-character.getWidth());     // position off screen left
+	if (character.getX() < -character.getWidth())         // if off screen left
+		character.setX((float)GAME_WIDTH);           // position off screen right
+
 	// If up key is pressed and the player is not at the bottom of the screen
 	if (input->isKeyDown(CHARACTER_UP_KEY) && character.getY() >= GAME_HEIGHT - playerNS::HEIGHT)
     {
 		character.jump();
     }
+	if (input->isKeyDown(CHARACTER_UP_KEY) && character.collides(ground, cv))
+	{
+		character.jump();
+	}
     if(input->isKeyDown(CHARACTER_DOWN_KEY))             // if move down
     {
 		character.setY(character.getY() + frameTime * playerNS::SPEED);
@@ -95,8 +100,16 @@ void Engine::ai()
 void Engine::collisions()
 {
 	VECTOR2 cv;
+	if (character.collides(ground, cv) && character.getVelocity().y >= 0)
+	{
+		character.setVelocity(VECTOR2(character.getVelocity().x, 0));
+	}
 	if (character.collides(ground, cv))
-		character.setX(10);
+	{
+		character.setVelocity(VECTOR2(0, character.getVelocity().y));
+	}
+		// MessageBox(NULL, "HELLo", "Error", MB_OK);
+		// character.setY(10);
 		// character.setVelocity(VECTOR2(character.getVelocity().x, 0));
 }
 

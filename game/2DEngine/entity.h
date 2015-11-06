@@ -21,6 +21,9 @@ protected:
 	VECTOR2 corners[4];
 	VECTOR2 edge01, edge03;
 
+	float   entA01min, entA01max, entA03min, entA03max;
+	float   entB01min, entB01max, entB03min, entB03max;
+
 	VECTOR2 velocity;
 	VECTOR2 deltaV;
 
@@ -33,11 +36,8 @@ protected:
 	HRESULT hr;
 	bool active;
 	DWORD pixelsColliding;
-	// bool rotatedBoxReady;
 
 	virtual bool collideBox(Entity &ent, VECTOR2 &collisionVector);
-
-	bool projectionsOvelap(Entity &ent, VECTOR2 collisionVector);
 
 public:
 	Entity();

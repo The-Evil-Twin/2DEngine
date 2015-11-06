@@ -14,6 +14,10 @@ Player::Player() : Entity()
 	startFrame = 0;
 	endFrame = 0;
 	currentFrame = startFrame;
+	edge.top = -playerNS::HEIGHT / 2;             // set collision edges
+	edge.bottom = playerNS::HEIGHT / 2;
+	edge.left = -playerNS::WIDTH / 2;
+	edge.right = playerNS::WIDTH / 2;
 	collisionType = entityNS::BOX;
 	mass = playerNS::MASS;
 }
@@ -29,7 +33,6 @@ void Player::update(float frameTime)
 	{
 		spriteData.y = GAME_HEIGHT - playerNS::HEIGHT;
 		velocity.y = 0;
-		velocity.x = 0;
 	}
 
 	// printf("%f\n", velocity.y);

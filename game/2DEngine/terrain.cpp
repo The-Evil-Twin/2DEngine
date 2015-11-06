@@ -14,5 +14,14 @@ Terrain::Terrain()
 	startFrame = 0;
 	endFrame = 0;
 	currentFrame = startFrame;
+	edge.top = -terrainNS::HEIGHT /2;             // set collision edges
+	edge.bottom = terrainNS::HEIGHT / 2;
+	edge.left = -terrainNS::WIDTH / 2;
+	edge.right = terrainNS::WIDTH / 2;
 	collisionType = entityNS::BOX;
+}
+
+void Terrain::update(float frameTime)
+{
+	Entity::update(frameTime);
 }
