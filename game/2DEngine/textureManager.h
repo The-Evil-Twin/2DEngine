@@ -24,7 +24,7 @@ class TextureManager
     // Destructor
     virtual ~TextureManager();
 
-    // Returns a pointer to the texture
+    // Returns a pointer to the textur=
     LP_TEXTURE getTexture() const {return texture;}
 
     // Returns the texture width
