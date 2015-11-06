@@ -24,17 +24,16 @@ void Engine::initialize(HWND hwnd)
     Game::initialize(hwnd); // throws GameError
 
     // background texture
-    //if (!backgroundTexture.initialize(graphics,BACKGROUND_IMAGE))
-    //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
+    if (!backgroundTexture.initialize(graphics,BACKGROUND_IMAGE))
+        throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
     if (!characterTexture.initialize(graphics,CHARACTER_IMAGE))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character texture"));
 	if (!groundTexture.initialize(graphics, GROUND_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ground texture"));
 
     // background
-    //if (!background.initialize(graphics,0,0,0,&backgroundTexture))
-    //    throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
-
+    if (!background.initialize(graphics,0,0,0,&backgroundTexture))
+        throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
     // character
     if (!character.initialize(this,playerNS::WIDTH,playerNS::HEIGHT,0,&characterTexture))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character"));
@@ -121,7 +120,7 @@ void Engine::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 
-    // background.draw();                      
+    background.draw();                      
     character.draw();
 	ground.draw();
 

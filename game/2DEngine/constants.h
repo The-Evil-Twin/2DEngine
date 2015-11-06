@@ -23,7 +23,7 @@
 //                  Constants
 //-----------------------------------------------
 // graphic images
-// const char BACKGROUND_IMAGE[]  = ""; 
+const char BACKGROUND_IMAGE[]  = "pictures\\sunny.png"; 
 const char CHARACTER_IMAGE[]   = "pictures\\WallSocketLady.png";   // CHARACTER
 const char GROUND_IMAGE[] = "pictures\\Grass.png";   // GRASS GROUND
 
