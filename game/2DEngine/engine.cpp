@@ -38,6 +38,7 @@ void Engine::initialize(HWND hwnd)
     // character
     if (!character.initialize(this,playerNS::WIDTH,playerNS::HEIGHT,0,&characterTexture))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing character"));
+    // terrain
 	if (!ground.initialize(this, terrainNS::WIDTH, terrainNS::HEIGHT, 0, &groundTexture))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ground"));
     character.setX(GAME_WIDTH/4);                           // Character Starting Position
